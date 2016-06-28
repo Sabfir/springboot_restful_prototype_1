@@ -31,9 +31,12 @@ public class Application implements CommandLineRunner {
 		logger.info("Run command line runner");
 
 		// fill role table
-		Role role1 = new Role(0l, "Admin");
-		Role role2 = new Role(0l, "Default");
+		Role role0 = new Role(0l, "ROLE_ADMIN");
+		Role role1 = new Role(0l, "ADMIN");
+		Role role2 = new Role(0l, "DEFAULT");
 
+		Role savedRole0 = roleRepository.save(role1);
+		logger.info("Saved to db role: " + savedRole0);
 		Role savedRole1 = roleRepository.save(role1);
 		logger.info("Saved to db role: " + savedRole1);
 		Role savedRole2 = roleRepository.save(role2);
@@ -45,8 +48,10 @@ public class Application implements CommandLineRunner {
 		user1.addRole(savedRole2);
 		User user2 = new User(0l, "Daha", "pass2");
 		user2.addRole(savedRole2);
-		User user3 = new User(0l, "Kasha", "pass3");
+		User user3 = new User(0l, "roy", "spring");
 		user3.setIsActive(true);
+		user3.addRole(savedRole0);
+		user3.addRole(savedRole1);
 		user3.addRole(savedRole2);
 
 		User savedUser = userRepository.save(user1);

@@ -20,6 +20,11 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
+//    @Autowired
+//    public UserController(UserRepository userRepository) {
+//        this.userRepository = userRepository;
+//    }
+
     @RequestMapping(value = "/user/{id}", method = RequestMethod.GET,
             headers = "Accept=application/json", produces = {"application/json"})
     public ResponseEntity<?> getUser(@PathVariable Long id) {
