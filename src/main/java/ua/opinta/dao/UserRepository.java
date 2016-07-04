@@ -11,7 +11,6 @@ import java.util.Optional;
  * Created by Administrator on 6/24/2016.
  */
 @Repository
-@Table(name = "user_detail")
 public interface UserRepository extends JpaRepository<User, Long> {
     Optional<User> findByUsername(String username);
 }

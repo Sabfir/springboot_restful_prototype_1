@@ -11,7 +11,6 @@ import ua.opinta.core.User;
 import ua.opinta.dao.RoleRepository;
 import ua.opinta.dao.UserRepository;
 
-
 @SpringBootApplication
 public class Application implements CommandLineRunner {
 	private static final Logger logger = LoggerFactory.getLogger(Application.class);
@@ -35,7 +34,7 @@ public class Application implements CommandLineRunner {
 		Role role1 = new Role(0l, "ADMIN");
 		Role role2 = new Role(0l, "DEFAULT");
 
-		Role savedRole0 = roleRepository.save(role1);
+		Role savedRole0 = roleRepository.save(role0);
 		logger.info("Saved to db role: " + savedRole0);
 		Role savedRole1 = roleRepository.save(role1);
 		logger.info("Saved to db role: " + savedRole1);
@@ -60,7 +59,6 @@ public class Application implements CommandLineRunner {
 		logger.info("Saved to db user: " + savedUser);
 		savedUser = userRepository.save(user3);
 		logger.info("Saved to db user: " + savedUser);
-
 
 	}
 }
